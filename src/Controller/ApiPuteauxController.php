@@ -30,7 +30,8 @@ class ApiPuteauxController extends AbstractController
             $coords = $data->fields->coordonnees_gps;
 
             foreach ($coords as $coord){
-                var_dump("Voici les coordonnees de la benne : "$coord);
+                var_dump("Voici les coordonnees de la benne : " . $coord);
+                echo '<br>';
             }
             echo '<br>';
             echo '<br>';
