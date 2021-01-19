@@ -28,13 +28,12 @@ class ApiPuteauxController extends AbstractController
             var_dump("Type de benne :" . $data->fields->type_colonne_aerien_enterre);
             echo '<br>';
             $coords = $data->fields->coordonnees_gps;
+
             foreach ($coords as $coord){
-                var_dump($coord);
+                var_dump("Voici les coordonnees de la benne : "$coord);
             }
-
             echo '<br>';
             echo '<br>';
-
         }
 
         return $this->render('api_puteaux/index.html.twig', [
