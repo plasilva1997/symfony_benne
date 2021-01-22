@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MapWayController!{% endblock %}
+
+{% block body %}
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet'/>
+    <script type="text/javascript">
+        var coords = [
+            for(){
+
+        }
+        ];
+
+        var accessToken = 'pk.eyJ1IjoiYXhlbGJhcmJlaHVzc29uIiwiYSI6ImNrNWZlNWE5cTJrMDczbXBnOGI4NTk2MTMifQ.5l3FgdaFC4KAGnfabyT6Kw';
+        mapboxgl.accessToken = accessToken;
+        //on initialise notre map sur le div #map
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v10',
+            center: [4.141056, 44.050022399999996], //un centre initial [longitude, latitude] (facultatif)
+            zoom: 13 //un zoom initial (facultatif)
+        });
+        //au chargement de la map
+        map.on('load', function () {
+            //on recadre la carte en fonction de nos différents points GPS
+            fitMap(map, coords);
+            //on affiche le tracé reliant nos différents points GPS
+            displayJourney(map, coords);
+            //on affiche l'itinéraire routier correspondant à nos points GPS
+            displayJourneyReshaped(map, coords);
+            //on affiche des marqueurs à la position de nos points GPS, indiquant leur numéros et recentrant la carte sur eux au clic.
+            placeMarkers(map, coords);
+        });
+
+
+    </script>
+    <div id="map" style="width: 100%; height: 400px;"></div>
+
+
+{% endblock %}
