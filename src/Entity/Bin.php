@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BinRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -62,6 +64,16 @@ class Bin
      * @ORM\Column(type="datetime")
      */
     private $modifiedAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=AdminHasTicket::class, mappedBy="idBin")
+     */
+    private $idAdminHasTicket;
+
+    public function __construct()
+    {
+        $this->idAdminHasTicket = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -184,6 +196,36 @@ class Bin
     public function setModifiedAt(\DateTimeInterface $modifiedAt): self
     {
         $this->modifiedAt = $modifiedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|AdminHasTicket[]
+     */
+    public function getIdAdminHasTicket(): Collection
+    {
+        return $this->idAdminHasTicket;
+    }
+
+    public function addIdAdminHasTicket(AdminHasTicket $idAdminHasTicket): self
+    {
+        if (!$this->idAdminHasTicket->contains($idAdminHasTicket)) {
+            $this->idAdminHasTicket[] = $idAdminHasTicket;
+            $idAdminHasTicket->setIdBin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdAdminHasTicket(AdminHasTicket $idAdminHasTicket): self
+    {
+        if ($this->idAdminHasTicket->removeElement($idAdminHasTicket)) {
+            // set the owning side to null (unless already changed)
+            if ($idAdminHasTicket->getIdBin() === $this) {
+                $idAdminHasTicket->setIdBin(null);
+            }
+        }
 
         return $this;
     }

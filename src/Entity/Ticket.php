@@ -47,6 +47,12 @@ class Ticket
      */
     private $modifiedAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=AdminHasTicket::class, inversedBy="tickets")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $idAdminHasTickets;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -132,6 +138,18 @@ class Ticket
     public function setModifiedAt(\DateTimeInterface $modifiedAt): self
     {
         $this->modifiedAt = $modifiedAt;
+
+        return $this;
+    }
+
+    public function getIdAdminHasTickets(): ?AdminHasTicket
+    {
+        return $this->idAdminHasTickets;
+    }
+
+    public function setIdAdminHasTickets(?AdminHasTicket $idAdminHasTickets): self
+    {
+        $this->idAdminHasTickets = $idAdminHasTickets;
 
         return $this;
     }
