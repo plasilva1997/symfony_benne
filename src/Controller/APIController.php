@@ -5,39 +5,21 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManager as em;
 
 class APIController extends AbstractController
 {
     /**
-     * @Route("/api/puteaux", name="api_puteaux")
+     * @Route("/api/toulouse", name="ApiToulouse")
+     * @return Response
      */
-    public function index(): Response
+    public function dataJsonGet(): Response
     {
+        $json = file_get_contents("https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=points-dapport-volontaire-dechets-et-moyens-techniques&q=&facet=commune&facet=flux&facet=centre_ville&facet=prestataire&facet=zone&facet=pole");
+        $data = json_decode($json);
 
-        $json = file_get_contents("https://ecoverre.paulosilva.xyz/benneverre.json");
-        $datas = json_decode($json);
-        dump($datas);
-
-        foreach ($datas as $data){
-
-            var_dump("La benne est situé :" . $data->fields->adresse);
-            echo '<br>';
-            var_dump("Jours de Collecte: " . $data->fields->frequence_de_collecte);
-            echo '<br>';
-            var_dump("Type de benne :" . $data->fields->type_colonne_aerien_enterre);
-            echo '<br>';
-            $coords = $data->fields->coordonnees_gps;
-
-            foreach ($coords as $coord){
-                var_dump("Voici les coordonnees de la benne : " . $coord);
-                echo '<br>';
-            }
-            echo '<br>';
-            echo '<br>';
-        }
-
-        return $this->render('api_puteaux/index.html.twig', [
-            'controller_name' => 'APIController',
+        return $this->render('map/mapview.html.twig', [
+            'data' => $data,
         ]);
     }
 }
