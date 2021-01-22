@@ -16,10 +16,18 @@ class APIController extends AbstractController
     public function dataJsonGet(): Response
     {
         $json = file_get_contents("https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=points-dapport-volontaire-dechets-et-moyens-techniques&q=&facet=commune&facet=flux&facet=centre_ville&facet=prestataire&facet=zone&facet=pole");
-        $data = json_decode($json);
+        $datas = json_decode($json);
+
+        foreach ($datas as $data)
+        {
+
+        }
+
+        var_dump($data);
 
         return $this->render('map/mapview.html.twig', [
-            'data' => $data,
+            'controller_name' => 'APIController',
+            'data' => $datas,
         ]);
     }
 }
