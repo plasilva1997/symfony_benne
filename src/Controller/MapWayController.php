@@ -8,6 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MapWayController extends AbstractController
 {
+    private $client;
+
     /**
      * @Route("/map/way", name="map_way")
      */
