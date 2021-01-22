@@ -66,9 +66,10 @@ class Bin
     private $modifiedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity=AdminHasTicket::class, mappedBy="idBin")
+     * @ORM\ManyToOne(targetEntity=AdminHasTicket::class, inversedBy="idBin")
      */
-    private $idAdminHasTicket;
+    private $idAdminHasTickets;
+
 
     public function __construct()
     {
@@ -226,6 +227,18 @@ class Bin
                 $idAdminHasTicket->setIdBin(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIdAdminHasTickets(): ?AdminHasTicket
+    {
+        return $this->idAdminHasTickets;
+    }
+
+    public function setIdAdminHasTickets(?AdminHasTicket $idAdminHasTickets): self
+    {
+        $this->idAdminHasTickets = $idAdminHasTickets;
 
         return $this;
     }

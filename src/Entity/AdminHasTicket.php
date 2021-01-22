@@ -20,12 +20,6 @@ class AdminHasTicket
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Bin::class, inversedBy="idAdminHasTicket")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $idBin;
-
-    /**
      * @ORM\OneToMany(targetEntity=Admin::class, mappedBy="idAdminHasTicket")
      */
     private $admins;
@@ -35,10 +29,16 @@ class AdminHasTicket
      */
     private $tickets;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Bin::class, mappedBy="idAdminHasTickets")
+     */
+    private $idBin;
+
     public function __construct()
     {
         $this->admins = new ArrayCollection();
         $this->tickets = new ArrayCollection();
+        $this->idBin = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -112,6 +112,28 @@ class AdminHasTicket
             // set the owning side to null (unless already changed)
             if ($ticket->getIdAdminHasTickets() === $this) {
                 $ticket->setIdAdminHasTickets(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function addIdBin(Bin $idBin): self
+    {
+        if (!$this->idBin->contains($idBin)) {
+            $this->idBin[] = $idBin;
+            $idBin->setIdAdminHasTickets($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdBin(Bin $idBin): self
+    {
+        if ($this->idBin->removeElement($idBin)) {
+            // set the owning side to null (unless already changed)
+            if ($idBin->getIdAdminHasTickets() === $this) {
+                $idBin->setIdAdminHasTickets(null);
             }
         }
 
