@@ -18,7 +18,6 @@ class ApiPuteauxController extends AbstractController
         $datas = json_decode($json);
         dump($datas);
 
-
         foreach ($datas as $data){
 
             var_dump("La benne est situé :" . $data->fields->adresse);
