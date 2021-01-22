@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\AdminRepository;
+use App\Repository\TicketRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=AdminRepository::class)
+ * @ORM\Entity(repositoryClass=TicketRepository::class)
  */
-class Admin
+class Ticket
 {
     /**
      * @ORM\Id
@@ -20,27 +20,27 @@ class Admin
     /**
      * @ORM\Column(type="integer")
      */
-    private $idAdmin;
+    private $idTicket;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="integer")
      */
-    private $login;
+    private $idBin;
+
+    /**
+     * @ORM\Column(type="string", length=45)
+     */
+    private $type;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $password;
+    private $content;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $role;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $token;
+    private $status;
 
     /**
      * @ORM\Column(type="datetime")
@@ -57,62 +57,62 @@ class Admin
         return $this->id;
     }
 
-    public function getIdAdmin(): ?int
+    public function getIdTicket(): ?int
     {
-        return $this->idAdmin;
+        return $this->idTicket;
     }
 
-    public function setIdAdmin(int $idAdmin): self
+    public function setIdTicket(int $idTicket): self
     {
-        $this->idAdmin = $idAdmin;
+        $this->idTicket = $idTicket;
 
         return $this;
     }
 
-    public function getLogin(): ?string
+    public function getIdBin(): ?int
     {
-        return $this->login;
+        return $this->idBin;
     }
 
-    public function setLogin(string $login): self
+    public function setIdBin(int $idBin): self
     {
-        $this->login = $login;
+        $this->idBin = $idBin;
 
         return $this;
     }
 
-    public function getPassword(): ?string
+    public function getType(): ?string
     {
-        return $this->password;
+        return $this->type;
     }
 
-    public function setPassword(string $password): self
+    public function setType(string $type): self
     {
-        $this->password = $password;
+        $this->type = $type;
 
         return $this;
     }
 
-    public function getRole(): ?bool
+    public function getContent(): ?string
     {
-        return $this->role;
+        return $this->content;
     }
 
-    public function setRole(bool $role): self
+    public function setContent(string $content): self
     {
-        $this->role = $role;
+        $this->content = $content;
 
         return $this;
     }
 
-    public function getToken(): ?string
+    public function getStatus(): ?bool
     {
-        return $this->token;
+        return $this->status;
     }
 
-    public function setToken(string $token): self
+    public function setStatus(bool $status): self
     {
-        $this->token = $token;
+        $this->status = $status;
 
         return $this;
     }
