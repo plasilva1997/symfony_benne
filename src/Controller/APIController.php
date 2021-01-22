@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ApiPuteauxController extends AbstractController
+class APIController extends AbstractController
 {
     /**
      * @Route("/api/puteaux", name="api_puteaux")
@@ -37,7 +37,7 @@ class ApiPuteauxController extends AbstractController
         }
 
         return $this->render('api_puteaux/index.html.twig', [
-            'controller_name' => 'ApiPuteauxController',
+            'controller_name' => 'APIController',
         ]);
     }
 }
