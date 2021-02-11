@@ -18,42 +18,42 @@ class Bin
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $idBin;
+    private int $idBin;
 
     /**
      * @ORM\Column(type="float")
      */
-    private $long;
+    private float $long;
 
     /**
      * @ORM\Column(type="float")
      */
-    private $lat;
+    private float $lat;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $city;
+    private string $city;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $postalCode;
+    private int $postalCode;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $street;
+    private string $street;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $collect;
+    private string $collect;
 
     /**
      * @ORM\Column(type="string", length=45)
      */
-    private $binType;
+    private string $binType;
 
     /**
      * @ORM\Column(type="datetime")
@@ -78,7 +78,7 @@ class Bin
 
     public function getId(): ?int
     {
-        return $this->id;
+        return $this->idBin;
     }
 
     public function getIdBin(): ?int
