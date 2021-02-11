@@ -2,34 +2,56 @@
 
 namespace App\Controller;
 
+use App\Entity\Bin;
+use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\ORM\EntityManager as em;
+use App\Repository\BinRepository;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class APIController extends AbstractController
 {
+
+    private HttpClientInterface $glassContainer;
+
+    public function __construct(HttpClientInterface $glassContainer )
+    {
+         $this->glassContainer = $glassContainer;
+    }
+
+    public function dataJsonGetfromApi()
+    {
+        $json = file_get_contents('https://download.data.grandlyon.com/ws/grandlyon/gic_collecte.gicsiloverre/all.json?maxfeatures=-1&start=1');
+        /*$response =
+            $this->glassContainer->request(
+                'GET',
+                'https://download.data.grandlyon.com/ws/grandlyon/gic_collecte.gicsiloverre/all.json?maxfeatures=-1&start=1'
+            );*/
+        return json_decode($json, true);
+    }
+
     /**
      * @Route("/api/lyon", name="ApiLyon")
-     * @return Response
+     * @param ObjectManager $manager
      */
-    public function dataJsonGet(): Response
+    public function index(ObjectManager $manager): void
     {
-        $json = file_get_contents("https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=gic_collecte.gicsiloverre&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0&count=100");
-        $datas = json_decode($json);
-
-        $bin = [];
-
-        foreach ($datas as $data)
+        $datas = $this->dataJsonGetfromApi();
+        foreach ($datas['values'] as $k => $v)
         {
+            $bin = new Bin();
+            $bin->setCity($v['commune']);
+            $bin->setStreet($v['voie']);
+            $bin->setStreetNum($v['numerodansvoie']);
+            $bin->setPostalCode($v['code_postal']);
+            $bin->setBinType('Verre');
+            $bin->setCollect(null);
+            $bin->setCreatedAt(new \DateTime());
 
+            $manager->persist($bin);
         }
 
-
-
-        return $this->render('map/mapview.html.twig', [
-            'controller_name' => 'APIController',
-            'data' => $datas,
-        ]);
+        $manager->flush();
     }
 }

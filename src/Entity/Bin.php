@@ -21,12 +21,12 @@ class Bin
     private int $idBin;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float", nullable=true)
      */
     private float $long;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float", nullable=true)
      */
     private float $lat;
 
@@ -46,7 +46,7 @@ class Bin
     private string $street;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private string $collect;
 
@@ -61,7 +61,7 @@ class Bin
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $modifiedAt;
 
@@ -69,6 +69,11 @@ class Bin
      * @ORM\ManyToOne(targetEntity=AdminHasTicket::class, inversedBy="idBin")
      */
     private $idAdminHasTickets;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private int $streetNum;
 
 
     public function __construct()
@@ -146,9 +151,9 @@ class Bin
         return $this->street;
     }
 
-    public function setStreeet(string $streeet): self
+    public function setStreet(string $street): self
     {
-        $this->streeet = $streeet;
+        $this->street = $street;
 
         return $this;
     }
@@ -239,6 +244,18 @@ class Bin
     public function setIdAdminHasTickets(?AdminHasTicket $idAdminHasTickets): self
     {
         $this->idAdminHasTickets = $idAdminHasTickets;
+
+        return $this;
+    }
+
+    public function getStreetNum(): ?int
+    {
+        return $this->streetNum;
+    }
+
+    public function setStreetNum(?int $streetNum): self
+    {
+        $this->streetNum = $streetNum;
 
         return $this;
     }
