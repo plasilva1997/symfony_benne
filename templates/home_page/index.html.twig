@@ -3,15 +3,41 @@
 {% block title %}Eco.Verre{% endblock %}
 
 {% block body %}
+    <div class="body-hp">
     {% block header %}
         <div class="header">
-            <img class="image" src="{{ asset('build/img/bg_1.jpg') }}">
+            <img class="image" alt="background" src="{{ asset('build/img/bg_1.jpg') }}">
             <div class="img-up">
-                <a class="title-hp">Eco.Verre</a>
-                <a class="v-dispo">Villes prises en charge</a>
+                <img class="image-logo" src={{ asset('build/img/eco_verre.svg') }}>
+                <a class="v-dispo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam risus lectus, fermentum suscipit.</a>
+                <div>
+                    <a class="cta-villes" href="#villes">Villes Disponibles</a>
+                </div>
             </div>
-
+            <div class="cercle_div">
+                <div class="cercle"><img class="cercle_img" alt="scrol down" src={{ asset('build/img/back.svg') }}></div>
+            </div>
         </div>
+
     {% endblock %}
+
+
+    {% block villes %}
+
+        <div id="villes">
+            <img class="ico-recycle" alt="recycle icon" src={{ asset('build/img/recycle-sign.svg') }}>
+            <div class="title-villes">
+                <a>Les villes disponibles</a>
+            </div>
+            <div class="cards_ville">
+                <div class="single_card_ville">
+
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
+
+    </div>
 {% endblock %}
 
