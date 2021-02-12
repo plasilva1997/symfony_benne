@@ -1,24 +1,25 @@
 <?php
 
+
 namespace App\Controller;
 
+
 use App\Entity\Bin;
+use App\Repository\BinRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use App\Repository\BinRepository;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-class APIController extends AbstractController
+class TestController extends AbstractController
 {
 
     private HttpClientInterface $glassContainer;
 
     public function __construct(HttpClientInterface $glassContainer )
     {
-         $this->glassContainer = $glassContainer;
+        $this->glassContainer = $glassContainer;
     }
 
     public function dataJsonGetfromApi()
@@ -39,12 +40,13 @@ class APIController extends AbstractController
     public function insertBins(EntityManagerInterface $manager): void
     {
         $datas = $this->dataJsonGetfromApi();
-        foreach ($datas['values'] as $k => $v)
-        {
+        foreach ($datas['values'] as $k => $v) {
             $bin = new Bin();
             $bin->setCity($v['commune']);
             $bin->setStreet($v['voie']);
-            if ($v['numerodansvoie']!=null){$bin->setStreetNum($v['numerodansvoie']);}
+            if ($v['numerodansvoie'] != null) {
+                $bin->setStreetNum($v['numerodansvoie']);
+            }
             $bin->setPostalCode($v['code_postal']);
             $bin->setBinType('Verre');
             $bin->setCreatedAt(new \DateTime());
@@ -53,5 +55,19 @@ class APIController extends AbstractController
         }
 
         $manager->flush();
+    }
+
+    /**
+     * @Route("/test", name="test")
+     * @param BinRepository $binRepository
+     * @return Response
+     */
+    public function getBins(BinRepository $binRepository): Response
+    {
+        $bins = $binRepository->findAll();
+
+        return $this->render('test/test.html.twig', [
+            'bins' => $bins
+        ]);
     }
 }

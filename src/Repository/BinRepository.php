@@ -5,8 +5,6 @@ namespace App\Repository;
 use App\Entity\Bin;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Doctrine\Persistence\ObjectManager;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 /**
  * @method Bin|null find($id, $lockMode = null, $lockVersion = null)
@@ -16,12 +14,9 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
  */
 class BinRepository extends ServiceEntityRepository
 {
-    private $glassContainer;
-
-    public function __construct(ManagerRegistry $registry, HttpClientInterface $glassContainer )
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Bin::class);
-        $this->glassContainer = $glassContainer;
     }
 
     // /**

@@ -1,9 +1,14 @@
-{% block body %}
-    {% for d in data %}
-    {{ data.streetNum }}
-    {{ data.street }}
-    {{ data.city }}
-    {{ data.postalCode }}
-    {{ data.binType }}
-    {% endfor %}
-{% endblock %}
+{% extends 'base.html.twig' %}
+
+    {% block body %}
+        {% for bin in bins %}
+            <ul>
+                <li>Num : {{ bin.streetNum }}</li>
+                <li>Street : {{ bin.street }}</li>
+                <li>Ville : {{ bin.city }}</li>
+                <li>PC : {{ bin.postalCode }}</li>
+                <li>Type : {{ bin.binType }}</li>
+            </ul>
+        {% endfor %}
+    {% endblock  %}
+
