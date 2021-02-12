@@ -1,0 +1,120 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MapWayController!{% endblock %}
+
+{% block body %}
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet'/>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css' type='text/css' />
+
+
+    <div id="map" style="width: 100%; height: 400px;"></div>
+    <script type="text/javascript">
+
+        mapboxgl.accessToken= 'pk.eyJ1IjoiYXhlbGJhcmJlaHVzc29uIiwiYSI6ImNrNWZlNWE5cTJrMDczbXBnOGI4NTk2MTMifQ.5l3FgdaFC4KAGnfabyT6Kw';
+
+
+
+
+        var map = new mapboxgl.Map({
+            container: 'map', // container id
+            style: 'mapbox://styles/mapbox/streets-v11', // style URL
+            center: [2.358725729465928, 48.85651527246046], // starting position [lng, lat]
+            zoom: 9 // starting zoom
+        });
+
+        var marker = new mapboxgl.Marker() // Initialize a new marker
+            .setLngLat([2.358725729465928, 48.85651527246046]) // Marker [lng, lat] coordinates of Paris
+            .addTo(map); // Add the marker to the map
+
+        /*var geocoder ={
+            type: 'FeatureCollection',
+            features: [{
+            type: 'Feature',
+            geometry: {
+                type: 'Point',
+                coordinates: [4.836492121283906, 45.754221213412606]
+            },
+            properties: {
+                title: 'Mapbox',
+                description: 'Lyon'
+            }
+        },
+            {
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [1.4266594874732794, 43.60192167048579]
+                },
+                properties: {
+                    title: 'Mapbox',
+                    description: 'Toulouse'
+                }
+            }]};*/
+        var geocoder = new MapboxGeocoder({ // Initialize the geocoder
+            accessToken: mapboxgl.accessToken, // Set the access token
+            mapboxgl: mapboxgl, // Set the mapbox-gl instance
+            marker: false, // Do not use the default marker style
+            placeholder: 'Votre adresse', // Placeholder text for the search bar
+            bbox: [ -4.79556, 2.5328, 48.96722, 51.0891], // Boundary for Berkeley
+            proximity: {
+                longitude: 2.358725729465928,
+                latitude: 48.85651527246046
+            }, // coordonate of Paris
+        });
+        map.addControl(geocoder);
+
+        // After the map style has loaded on the page,
+        // add a source layer and default styling for a single point
+
+        map.on('load', function() {
+            map.addLayer({
+                id: 'point',
+                source: 'single-point',
+                type: 'circle',
+                paint: {
+                    'circle-radius': 10,
+                    'circle-color': '#448ee4'
+                }
+            });
+
+            // Listen for the `result` event from the Geocoder
+            // `result` event is triggered when a user makes a selection
+            // Add a marker at the result's coordinates
+            geocoder.on('result', function(ev) {
+                map.getSource('single-point').setData(ev.result.geometry);
+            });
+        });
+        map.addSource('some id', {
+            type: 'geojson',
+            data: {
+                type: 'FeatureCollection',
+                features: [{
+                    'type': 'Feature',
+                    "properties": {"name": "Lyon"},
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': [45.754221213412606, 4.836492121283906]
+                    }
+                },
+                    {
+                        'type': 'Feature',
+                        "properties": {"name": "Toulouse"},
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [43.60192167048579, 1.4266594874732794]
+                        }
+                    }]
+            }
+        });
+
+    </script>
+
+
+
+
+
+
+{% endblock %}
