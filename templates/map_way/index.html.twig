@@ -87,6 +87,28 @@
                 map.getSource('single-point').setData(ev.result.geometry);
             });
         });
+        map.addSource('some id', {
+            type: 'geojson',
+            data: {
+                type: 'FeatureCollection',
+                features: [{
+                    'type': 'Feature',
+                    "properties": {"name": "Lyon"},
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': [45.754221213412606, 4.836492121283906]
+                    }
+                },
+                    {
+                        'type': 'Feature',
+                        "properties": {"name": "Toulouse"},
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [43.60192167048579, 1.4266594874732794]
+                        }
+                    }]
+            }
+        });
 
     </script>
 
