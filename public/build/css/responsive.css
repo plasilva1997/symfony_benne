@@ -1,0 +1,406 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    .img-up{
+        height: 30vh;
+    }
+
+    .v-dispo{
+        width: 70%;
+    }
+
+    .image{
+        height: 30vh;
+    }
+
+    .cta-villes{
+        margin-top: 2vh;
+    }
+
+    .image-logo{
+        margin-top: 7vh;
+    }
+
+    .header{
+        height: 30vh;
+    }
+
+    .cercle_div{
+        display: none;
+    }
+
+    .center-cards{
+        margin-top: 0;
+    }
+
+    .single_card_ville{
+        height: 16vh;
+    }
+
+    .footer{
+        position: fixed;
+        bottom: 0;
+    }
+
+    .link-nav-a{
+        width: 40%;
+        font-size: 1em;
+    }
+
+    .logo-nav{
+        width: 10%;
+    }
+
+    .link-footer{
+        width: 40%;
+        font-size: 1em;
+    }
+
+    .text-villes-a{
+        font-size: 1.5em;
+
+    }
+
+    .title-villes{
+        font-size: 3em;
+    }
+
+    .text-link{
+        text-align: center;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    .text-link{
+        text-align: center;
+    }
+
+    .img-up{
+        height: 30vh;
+    }
+
+    .v-dispo{
+        width: 70%;
+    }
+
+    .image{
+        height: 30vh;
+    }
+
+    .cta-villes{
+        margin-top: 2vh;
+    }
+
+    .image-logo{
+        margin-top: 7vh;
+    }
+
+    .header{
+        height: 30vh;
+    }
+
+    .cercle_div{
+        display: none;
+    }
+
+    .center-cards{
+        margin-top: 0;
+    }
+
+    .single_card_ville{
+        height: 16vh;
+    }
+
+    .footer{
+        position: fixed;
+        bottom: 0;
+    }
+
+    .link-nav-a{
+        width: 40%;
+        font-size: 1em;
+    }
+
+    .logo-nav{
+        width: 10%;
+    }
+
+    .link-footer{
+        width: 40%;
+        font-size: 1em;
+    }
+
+    .text-villes-a{
+        font-size: 1.5em;
+
+    }
+
+    .title-villes{
+        font-size: 3em;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+    .header{
+        height: 35vh;
+    }
+
+    .image{
+        height: 35vh;
+    }
+
+    .img-up{
+        height: 35vh;
+    }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 1024px) {
+    .header{
+        width: 100%;
+        height: 80vh;
+    }
+
+    .image{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 71vh;
+    }
+
+    .image-logo{
+        width: 20%;
+        margin-top: 7vh;
+    }
+
+    .img-up{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        height: 66vh;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        flex-direction: column;
+        flex-flow: column;
+    }
+
+    .title-hp{
+        color: #fff;
+        font-size: 6vw;
+    }
+
+    .v-dispo{
+        color: #9A9A9A;
+        margin-top: 2%;
+        font-size: 2em;
+        width: 55%;
+        text-align: center;
+    }
+
+    .cercle_div{
+        display: none;
+
+    }
+
+    .cercle{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        border-radius: 25px;
+        box-shadow: 0 1px 12px #00000036;
+        background-image: url("../img/back.svg");
+        align-items: center;
+        justify-content: center;
+        display: flex;
+
+    }
+
+    .cercle_img{
+        margin-top: 1vh ;
+        width: 35px;
+        height: 35px;
+        zoom: 50%;
+    }
+
+    .cta-villes{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 250px;
+        margin-top: 7vh;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        text-decoration: none;
+        background-color: #9BBF26;
+        border-radius: 30px;
+        font-size: 1.2em;
+        color: white;
+        height: 4vh;
+        border: 2px solid #9bbf26;
+        transition: 0.5s;
+
+    }
+
+    .cta-villes:hover{
+
+        transition: 0.5s;
+        background-color: transparent;
+        border-radius: 30px;
+        color: #9BBF26;
+    }
+
+    #villes{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 3vh;
+
+    }
+
+    .title-villes{
+        margin-top: 30px;
+        text-align: center;
+        font-size: 3vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .text-villes{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+    }
+
+    .text-villes-a{
+        margin-top: 2vh;
+        font-size: 1em;
+        color: black;
+        width: 70%;
+        text-align: center;
+
+    }
+    .ico-recycle{
+        width: 50px;
+        height: 50px;
+
+        -webkit-animation-name: spin;
+        -webkit-animation-duration: 4000ms;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+
+        -moz-animation-name: spin;
+        -moz-animation-duration: 4000ms;
+        -moz-animation-iteration-count: infinite;
+        -moz-animation-timing-function: linear;
+
+        -ms-animation-name: spin;
+        -ms-animation-duration: 4000ms;
+        -ms-animation-iteration-count: infinite;
+        -ms-animation-timing-function: linear;
+
+        animation-name: spin;
+        animation-duration: 6000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    .center-cards{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 10vh;
+        margin-bottom: 7vh;
+    }
+
+    .cards_ville{
+        display: grid;
+        height: auto;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+
+    }
+
+    .single_card_ville{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2vh;
+        width: 26vw;
+        margin-right: 5%;
+        margin-bottom: 5%;
+        height: 35vh;
+        background-color: #F3F3F3;
+        transition: 0.5s;
+        color: black;
+        font-size: 2.5em;
+        text-decoration: none;
+
+    }
+
+    .single_card_ville:hover{
+        transition: 0.5s;
+        background-color: #4B4B4B;
+        color: white;
+    }
+
+    .single_card_ville:hover > .ico-ville{
+        transition: 0.5s;
+        background-image: url("../img/villes_white.svg");
+    }
+
+    .single_card_ville:hover > .name_ville{
+        transition: 0.5s;
+        color: white;
+    }
+
+    .ico-ville{
+        width: 50px;
+        height: 50px;
+        margin-bottom: 5vh;
+        background-image: url("../img/villes_back.svg");
+        background-size: cover;
+    }
+
+    .logo-nav{
+        width: 5%;
+    }
+
+    .link-footer{
+        width: 30%;
+        font-size: 1em;
+    }
+
+    .link-nav-a{
+        width: 30%;
+        font-size: 1em;
+    }
+
+}
