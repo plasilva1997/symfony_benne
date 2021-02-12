@@ -3,24 +3,20 @@
 {% block title %}Hello MapController!{% endblock %}
 
 {% block body %}
-<style>
-
-
-    #map{
-        position: absolute !important;
-        zoom: 100%;
-        top: 30vh;
-        right: 10vh;
-    }
-
-</style>
-
+    <style>
+        #map {
+            position: absolute !important;
+            zoom: 100%;
+            top: 30vh;
+            right: 10vh;
+        }
+    </style>
 
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet'/>
     <div id="map" style="width: 800px; height: 400px;"></div>
     <script type="text/javascript">
-        mapboxgl.accessToken= 'pk.eyJ1IjoiYXhlbGJhcmJlaHVzc29uIiwiYSI6ImNrNWZlNWE5cTJrMDczbXBnOGI4NTk2MTMifQ.5l3FgdaFC4KAGnfabyT6Kw';
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYXhlbGJhcmJlaHVzc29uIiwiYSI6ImNrNWZlNWE5cTJrMDczbXBnOGI4NTk2MTMifQ.5l3FgdaFC4KAGnfabyT6Kw';
         var map = new mapboxgl.Map({
             container: 'map', // container id
             style: 'mapbox://styles/mapbox/streets-v11', // style URL
@@ -28,8 +24,5 @@
             zoom: 9 // starting zoom
         });
     </script>
-
-
-
 
 {% endblock %}
