@@ -8,6 +8,7 @@
             <link rel="stylesheet" href="{{ asset('build/css/footer.css') }}">
             <link rel="stylesheet" href="{{ asset('build/css/navbar.css') }}">
             <link rel="stylesheet" href="{{ asset('build/css/style.css') }}">
+            <link rel="stylesheet" href="{{ asset('build/css/responsive.css') }}">
         {% endblock %}
     </head>
     <body>
@@ -18,8 +19,21 @@
         {% include 'common/navbar.html.twig' %}
     {% endblock %}
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
 
+    {% block script %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.js-scrollTo').on('click', function() { // Au clic sur un élément
+                    var page = $(this).attr('href'); // Page cible
+                    var speed = 750; // Durée de l'animation (en ms)
+                    $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+                    return false;
+                });
+            });
+        </script>
+
+    {% endblock %}
 
     {% block footer %}
         {% include 'common/footer.html.twig' %}
