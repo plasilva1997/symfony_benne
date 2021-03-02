@@ -16,28 +16,37 @@ class TestController extends AbstractController
 {
 
     private HttpClientInterface $glassContainer;
+    private $client;
 
     public function __construct(HttpClientInterface $glassContainer )
     {
         $this->glassContainer = $glassContainer;
     }
 
-    public function dataJsonGetfromApi()
+    /*public function dataJsonGetfromApi( )
     {
         $json = file_get_contents('https://download.data.grandlyon.com/ws/grandlyon/gic_collecte.gicsiloverre/all.json?maxfeatures=-1&start=1');
-        /*$response =
-            $this->glassContainer->request(
-                'GET',
-                'https://download.data.grandlyon.com/ws/grandlyon/gic_collecte.gicsiloverre/all.json?maxfeatures=-1&start=1'
-            );*/
+        $json = file_get_contents('https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=gic_collecte.gicsiloverre&outputFormat=application/json');
         return json_decode($json, true);
+    }*/
+
+    public function dataJsonGetFromApi()
+    {
+        $url = urlencode('https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=gic_collecte.gicsiloverre&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0');
+        $response = $this->client->request(
+            'GET',
+            $url
+        );
+        $content = $response->toArray();
+
+        return $content;
     }
 
     /**
      * @Route("/api/lyon", name="ApiLyon")
      * @param EntityManagerInterface $manager
      */
-    public function insertBins(EntityManagerInterface $manager): void
+    /*public function insertBins(EntityManagerInterface $manager): void
     {
         $datas = $this->dataJsonGetfromApi();
         foreach ($datas['values'] as $k => $v) {
@@ -55,7 +64,7 @@ class TestController extends AbstractController
         }
 
         $manager->flush();
-    }
+    }*/
 
     /**
      * @Route("/test", name="test")
@@ -64,8 +73,8 @@ class TestController extends AbstractController
      */
     public function getBins(BinRepository $binRepository): Response
     {
-        $bins = $binRepository->findAll();
-
+        //$bins = $binRepository->findAll();
+        $bins = $this->dataJsonGetfromApi();
         return $this->render('test/test.html.twig', [
             'bins' => $bins
         ]);
