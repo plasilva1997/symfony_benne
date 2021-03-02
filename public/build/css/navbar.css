@@ -1,7 +1,7 @@
 .navbar{
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     z-index: 2;
     display: -webkit-box;
     display: -webkit-flex;
@@ -9,10 +9,19 @@
     display: flex;
     width: 100%;
     height: 8vh;
-    -webkit-justify-content: space-around;
+    -webkit-justify-content: flex-end;
     -ms-flex-pack: distribute;
-    justify-content: space-around;
-    background-color: rgb(1,85,37);
+    justify-content: space-between;
+}
+
+.logo-nav-a{
+    width: 10%;
+}
+
+.logo-nav{
+    width: 50%;
+    min-height: 8vh;
+    margin-left: 5%;
 }
 
 .ico-site{
@@ -34,6 +43,7 @@
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
     justify-content: flex-end;
+    align-items: center;
 }
 
 .link-nav-a{
@@ -42,8 +52,7 @@
     display: -ms-flexbox;
     display: flex;
     width: 20%;
-    height: 8vh;
-    margin-left: 25px;
+    height: 4vh;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
@@ -52,11 +61,25 @@
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    background-color: transparent;
     text-decoration: none;
+    background-color: #54BE73;
+    border-radius: 30px;
+    font-size: 0.8em;
+    margin-right: 50px;
+    border: 2px solid #54BE73;
+    transition: 0.5s;
+    color: white;
+
+}
+
+.link-nav-a:hover{
+
+    transition: 0.5s;
+    background-color: transparent;
+    border-radius: 30px;
+    color: #54BE73;
 }
 
 .text-link{
-    color: #82b440;
     font-size: 1.5em;
 }
