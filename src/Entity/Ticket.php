@@ -15,22 +15,22 @@ class Ticket
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $idTicket;
+    private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50)
      */
-    private $idBin;
-
-    /**
-     * @ORM\Column(type="string", length=45)
-     */
-    private $type;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $content;
+    private $mail;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $message;
 
     /**
      * @ORM\Column(type="boolean")
@@ -40,68 +40,50 @@ class Ticket
     /**
      * @ORM\Column(type="datetime")
      */
-    private $createdAt;
+    private $createdAtDate;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $modifiedAt;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=AdminHasTicket::class, inversedBy="tickets")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $idAdminHasTickets;
+    private $modifiedAtDate;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIdTicket(): ?int
+    public function getName(): ?string
     {
-        return $this->idTicket;
+        return $this->name;
     }
 
-    public function setIdTicket(int $idTicket): self
+    public function setName(string $name): self
     {
-        $this->idTicket = $idTicket;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getIdBin(): ?int
+    public function getMail(): ?string
     {
-        return $this->idBin;
+        return $this->mail;
     }
 
-    public function setIdBin(int $idBin): self
+    public function setMail(string $mail): self
     {
-        $this->idBin = $idBin;
+        $this->mail = $mail;
 
         return $this;
     }
 
-    public function getType(): ?string
+    public function getMessage(): ?string
     {
-        return $this->type;
+        return $this->message;
     }
 
-    public function setType(string $type): self
+    public function setMessage(string $message): self
     {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(string $content): self
-    {
-        $this->content = $content;
+        $this->message = $message;
 
         return $this;
     }
@@ -118,38 +100,26 @@ class Ticket
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAtDate(): ?\DateTimeInterface
     {
-        return $this->createdAt;
+        return $this->createdAtDate;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAtDate(\DateTimeInterface $createdAtDate): self
     {
-        $this->createdAt = $createdAt;
+        $this->createdAtDate = $createdAtDate;
 
         return $this;
     }
 
-    public function getModifiedAt(): ?\DateTimeInterface
+    public function getModifiedAtDate(): ?\DateTimeInterface
     {
-        return $this->modifiedAt;
+        return $this->modifiedAtDate;
     }
 
-    public function setModifiedAt(\DateTimeInterface $modifiedAt): self
+    public function setModifiedAtDate(\DateTimeInterface $modifiedAtDate): self
     {
-        $this->modifiedAt = $modifiedAt;
-
-        return $this;
-    }
-
-    public function getIdAdminHasTickets(): ?AdminHasTicket
-    {
-        return $this->idAdminHasTickets;
-    }
-
-    public function setIdAdminHasTickets(?AdminHasTicket $idAdminHasTickets): self
-    {
-        $this->idAdminHasTickets = $idAdminHasTickets;
+        $this->modifiedAtDate = $modifiedAtDate;
 
         return $this;
     }

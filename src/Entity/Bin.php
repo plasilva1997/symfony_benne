@@ -65,11 +65,6 @@ class Bin
      */
     private $modifiedAt;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=AdminHasTicket::class, inversedBy="idBin")
-     */
-    private $idAdminHasTickets;
-
 
     public function __construct()
     {
@@ -201,45 +196,4 @@ class Bin
         return $this;
     }
 
-    /**
-     * @return Collection|AdminHasTicket[]
-     */
-    public function getIdAdminHasTicket(): Collection
-    {
-        return $this->idAdminHasTicket;
-    }
-
-    public function addIdAdminHasTicket(AdminHasTicket $idAdminHasTicket): self
-    {
-        if (!$this->idAdminHasTicket->contains($idAdminHasTicket)) {
-            $this->idAdminHasTicket[] = $idAdminHasTicket;
-            $idAdminHasTicket->setIdBin($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIdAdminHasTicket(AdminHasTicket $idAdminHasTicket): self
-    {
-        if ($this->idAdminHasTicket->removeElement($idAdminHasTicket)) {
-            // set the owning side to null (unless already changed)
-            if ($idAdminHasTicket->getIdBin() === $this) {
-                $idAdminHasTicket->setIdBin(null);
-            }
-        }
-
-        return $this;
-    }
-
-    public function getIdAdminHasTickets(): ?AdminHasTicket
-    {
-        return $this->idAdminHasTickets;
-    }
-
-    public function setIdAdminHasTickets(?AdminHasTicket $idAdminHasTickets): self
-    {
-        $this->idAdminHasTickets = $idAdminHasTickets;
-
-        return $this;
-    }
 }
