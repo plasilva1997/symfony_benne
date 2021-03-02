@@ -47,8 +47,12 @@
         font-size: 1em;
     }
 
+    .logo-nav-a{
+        width: 15%;
+    }
+
     .logo-nav{
-        width: 10%;
+        width: 100%;
     }
 
     .link-footer{
@@ -124,7 +128,7 @@
     }
 
     .logo-nav{
-        width: 10%;
+        width: 50%;
     }
 
     .link-footer{
@@ -390,7 +394,7 @@
     }
 
     .logo-nav{
-        width: 5%;
+        width: 50%;
     }
 
     .link-footer{

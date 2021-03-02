@@ -3,17 +3,23 @@
 {% block title %}Eco.Verre | Mentions Légales{% endblock %}
 
 {% block body %}
-<style>
 
+    {% block navbar %}
+        {% include 'common/navbar.html.twig' %}
 
+        <style>
+            .navbar{
+                background-color: #154C4A;
+            }
+        </style>
+    {% endblock %}
 
-</style>
 
     <div class="body-ml">
         <div class="title-ml">
             <h1>Mentions Légales</h1>
         </div>
-        <div class="content">
+        <div class="content-ml">
             <p>Le site " <span><a href="">ecoverre.paulosilva.xyz</a></span> " hébergé chez OVH, est édité par EcoVerre</p>
             <p>Le directeur de la publication est EcoVerre.</p>
             <div class="group">

@@ -14,8 +14,13 @@
     justify-content: space-between;
 }
 
+.logo-nav-a{
+    width: 10%;
+}
+
 .logo-nav{
-    width: 7%;
+    width: 50%;
+    min-height: 8vh;
     margin-left: 5%;
 }
 
