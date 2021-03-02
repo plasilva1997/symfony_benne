@@ -50,8 +50,7 @@
         });
         map.addControl(geocoder);
 
-        // After the map style has loaded on the page,
-        // add a source layer and default styling for a single point
+
 
         map.on('load', function() {
             map.addLayer({
@@ -64,9 +63,6 @@
                 }
             });
 
-            // Listen for the `result` event from the Geocoder
-            // `result` event is triggered when a user makes a selection
-            // Add a marker at the result's coordinates
             geocoder.on('result', function(ev) {
                 map.getSource('single-point').setData(ev.result.geometry);
             });
