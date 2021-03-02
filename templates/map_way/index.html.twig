@@ -29,30 +29,14 @@
             .setLngLat([2.358725729465928, 48.85651527246046]) // Marker [lng, lat] coordinates of Paris
             .addTo(map); // Add the marker to the map
 
-        /*var geocoder ={
-            type: 'FeatureCollection',
-            features: [{
-            type: 'Feature',
-            geometry: {
-                type: 'Point',
-                coordinates: [4.836492121283906, 45.754221213412606]
-            },
-            properties: {
-                title: 'Mapbox',
-                description: 'Lyon'
-            }
-        },
-            {
-                type: 'Feature',
-                geometry: {
-                    type: 'Point',
-                    coordinates: [1.4266594874732794, 43.60192167048579]
+        map.addControl(
+            new mapboxgl.GeolocateControl({
+                positionOptions: {
+                    enableHighAccuracy: true
                 },
-                properties: {
-                    title: 'Mapbox',
-                    description: 'Toulouse'
-                }
-            }]};*/
+                trackUserLocation: true
+            })
+        );
         var geocoder = new MapboxGeocoder({ // Initialize the geocoder
             accessToken: mapboxgl.accessToken, // Set the access token
             mapboxgl: mapboxgl, // Set the mapbox-gl instance
@@ -87,7 +71,7 @@
                 map.getSource('single-point').setData(ev.result.geometry);
             });
         });
-        map.addSource('some id', {
+        map.addSource('streets-v11', {
             type: 'geojson',
             data: {
                 type: 'FeatureCollection',
