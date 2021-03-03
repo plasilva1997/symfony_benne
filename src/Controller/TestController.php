@@ -23,16 +23,16 @@ class TestController extends AbstractController
         $this->glassContainer = $glassContainer;
     }
 
-    /*public function dataJsonGetfromApi( )
+    public function dataJsonGetfromApi( )
     {
-        $json = file_get_contents('https://download.data.grandlyon.com/ws/grandlyon/gic_collecte.gicsiloverre/all.json?maxfeatures=-1&start=1');
-        $json = file_get_contents('https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=gic_collecte.gicsiloverre&outputFormat=application/json');
+        $json = file_get_contents('https://www.data.gouv.fr/fr/datasets/r/85ad9858-0f57-4ae0-9af4-e90165ee83ae');
+      //  $json = file_get_contents('https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=gic_collecte.gicsiloverre&outputFormat=application/json');
         return json_decode($json, true);
-    }*/
+    }
 
-    public function dataJsonGetFromApi()
+    /*public function dataJsonGetFromApi()
     {
-        $url = urlencode('https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=gic_collecte.gicsiloverre&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0');
+        $url = urlencode('https://www.data.gouv.fr/fr/datasets/r/85ad9858-0f57-4ae0-9af4-e90165ee83ae');
         $response = $this->client->request(
             'GET',
             $url
@@ -40,31 +40,32 @@ class TestController extends AbstractController
         $content = $response->toArray();
 
         return $content;
-    }
+    }*/
 
     /**
      * @Route("/api/lyon", name="ApiLyon")
      * @param EntityManagerInterface $manager
      */
-    /*public function insertBins(EntityManagerInterface $manager): void
+    public function insertBins(EntityManagerInterface $manager): void
     {
         $datas = $this->dataJsonGetfromApi();
-        foreach ($datas['values'] as $k => $v) {
+        foreach ($datas['features'] as $k => $v) {
             $bin = new Bin();
-            $bin->setCity($v['commune']);
-            $bin->setStreet($v['voie']);
-            if ($v['numerodansvoie'] != null) {
-                $bin->setStreetNum($v['numerodansvoie']);
+            $bin->setCity($v['properties']['commune']);
+            $bin->setStreet($v['properties']['voie']);
+            if (isset($v['properties']['numerodansvoie']) && $v['properties']['numerodansvoie'] != null) {
+                $bin->setStreetNum($v['properties']['numerodansvoie']);
             }
-            $bin->setPostalCode($v['code_postal']);
+            $bin->setPostalCode($v['properties']['code_postal']);
             $bin->setBinType('Verre');
             $bin->setCreatedAt(new \DateTime());
+
 
             $manager->persist($bin);
         }
 
         $manager->flush();
-    }*/
+    }
 
     /**
      * @Route("/test", name="test")
