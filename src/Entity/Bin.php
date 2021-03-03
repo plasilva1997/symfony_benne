@@ -151,17 +151,6 @@ class Bin
         return $this;
     }
 
-    public function getLong(): ?string
-    {
-        return $this->long;
-    }
-
-    public function setLong(?string $long): self
-    {
-        $this->long = $long;
-
-        return $this;
-    }
 
     public function getLat(): ?float
     {
