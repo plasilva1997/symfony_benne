@@ -33,7 +33,7 @@ class HomePageController extends AbstractController
                 ->setMessage($request->request->get('message'))
                 ->setCreatedAtDate(new \DateTime())
                 ->setModifiedAtDate(new \DateTime())
-                ->setStatus(0);
+                ->setStatus(false);
 
             $this->manager->persist($ticket);
             $this->manager->flush();
