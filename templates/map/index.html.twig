@@ -5,8 +5,6 @@
 {% block body %}
 
         {% block navbarmap %}
-
-
             <style>
                 .navbar{
                     background-color: #154C4A;
@@ -17,7 +15,7 @@
     <div class="body-map">
         <div class="content">
             <div class="map">
-                <div id="map" style="width: 75vw; height: 84vh;"></div>
+                <div id="map"></div>
             </div>
             <div class="pannel">
 
@@ -49,6 +47,8 @@
     </div>
 
 
+
+
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet'/>
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js'></script>
@@ -63,6 +63,10 @@
             center: [2.358725729465928, 48.85651527246046], // starting position [lng, lat]
             zoom: 9 // starting zoom
         });
+
+
+
+
         var marker = new mapboxgl.Marker() // Initialize a new marker
             .setLngLat([2.358725729465928, 48.85651527246046]) // Marker [lng, lat] coordinates of Paris
             .addTo(map); // Add the marker to the map
@@ -93,7 +97,7 @@
                 type: 'circle',
                 paint: {
                     'circle-radius': 10,
-                    'circle-color': '#448ee4'
+                    'circle-color': '#218100'
                 }
             });
             geocoder.on('result', function(ev) {
@@ -123,6 +127,39 @@
             }
         });
     </script>
+
+    <style>
+        .mapboxgl-user-location-dot {
+            background-color: #218100;
+        }
+
+        .mapboxgl-user-location-dot::before{
+            background-color: #33c800;
+
+        }
+
+        .mapboxgl-user-location-dot::after{
+            background-color: #33c800;
+
+        }
+
+        .mapboxgl-marke{
+            fill: #218100;
+        }
+
+        .mapboxgl-marke{
+
+        }
+
+        .marker {
+            background-image: url('../../public/build/img/recycle-sign.svg');
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
 
 
 {% endblock %}
