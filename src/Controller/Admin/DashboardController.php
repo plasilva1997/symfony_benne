@@ -24,7 +24,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Symfony Benne');
+            ->setTitle('EcoVerre');
     }
 
     public function configureMenuItems(): iterable
