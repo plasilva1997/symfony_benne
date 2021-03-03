@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\BinRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,109 +10,61 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Bin
 {
-
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $idBin;
+    private $id;
 
     /**
-     * @ORM\Column(type="float")
-     */
-    private $long;
-
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $lat;
-
-    /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $city;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $postalCode;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $street;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $collect;
-
-    /**
-     * @ORM\Column(type="string", length=45)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $binType;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $streetNum;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $modifiedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity=AdminHasTicket::class, inversedBy="idBin")
+     * @ORM\Column(type="float", nullable=true)
      */
-    private $idAdminHasTickets;
+    private $lat;
 
-
-    public function __construct()
-    {
-        $this->idAdminHasTicket = new ArrayCollection();
-    }
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $lon;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getIdBin(): ?int
-    {
-        return $this->idBin;
-    }
-
-    public function setIdBin(int $idBin): self
-    {
-        $this->idBin = $idBin;
-
-        return $this;
-    }
-
-    public function getLong(): ?float
-    {
-        return $this->long;
-    }
-
-    public function setLong(float $long): self
-    {
-        $this->long = $long;
-
-        return $this;
-    }
-
-    public function getLat(): ?float
-    {
-        return $this->lat;
-    }
-
-    public function setLat(float $lat): self
-    {
-        $this->lat = $lat;
-
-        return $this;
     }
 
     public function getCity(): ?string
@@ -122,19 +72,19 @@ class Bin
         return $this->city;
     }
 
-    public function setCity(string $city): self
+    public function setCity(?string $city): self
     {
         $this->city = $city;
 
         return $this;
     }
 
-    public function getPostalCode(): ?int
+    public function getPostalCode(): ?string
     {
         return $this->postalCode;
     }
 
-    public function setPostalCode(int $postalCode): self
+    public function setPostalCode(?string $postalCode): self
     {
         $this->postalCode = $postalCode;
 
@@ -146,21 +96,9 @@ class Bin
         return $this->street;
     }
 
-    public function setStreeet(string $streeet): self
+    public function setStreet(?string $street): self
     {
-        $this->streeet = $streeet;
-
-        return $this;
-    }
-
-    public function getCollect(): ?string
-    {
-        return $this->collect;
-    }
-
-    public function setCollect(string $collect): self
-    {
-        $this->collect = $collect;
+        $this->street = $street;
 
         return $this;
     }
@@ -170,9 +108,21 @@ class Bin
         return $this->binType;
     }
 
-    public function setBinType(string $binType): self
+    public function setBinType(?string $binType): self
     {
         $this->binType = $binType;
+
+        return $this;
+    }
+
+    public function getStreetNum(): ?string
+    {
+        return $this->streetNum;
+    }
+
+    public function setStreetNum(?string $streetNum): self
+    {
+        $this->streetNum = $streetNum;
 
         return $this;
     }
@@ -182,7 +132,7 @@ class Bin
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAt(?\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
 
@@ -194,51 +144,45 @@ class Bin
         return $this->modifiedAt;
     }
 
-    public function setModifiedAt(\DateTimeInterface $modifiedAt): self
+    public function setModifiedAt(?\DateTimeInterface $modifiedAt): self
     {
         $this->modifiedAt = $modifiedAt;
 
         return $this;
     }
 
-    /**
-     * @return Collection|AdminHasTicket[]
-     */
-    public function getIdAdminHasTicket(): Collection
+    public function getLong(): ?string
     {
-        return $this->idAdminHasTicket;
+        return $this->long;
     }
 
-    public function addIdAdminHasTicket(AdminHasTicket $idAdminHasTicket): self
+    public function setLong(?string $long): self
     {
-        if (!$this->idAdminHasTicket->contains($idAdminHasTicket)) {
-            $this->idAdminHasTicket[] = $idAdminHasTicket;
-            $idAdminHasTicket->setIdBin($this);
-        }
+        $this->long = $long;
 
         return $this;
     }
 
-    public function removeIdAdminHasTicket(AdminHasTicket $idAdminHasTicket): self
+    public function getLat(): ?float
     {
-        if ($this->idAdminHasTicket->removeElement($idAdminHasTicket)) {
-            // set the owning side to null (unless already changed)
-            if ($idAdminHasTicket->getIdBin() === $this) {
-                $idAdminHasTicket->setIdBin(null);
-            }
-        }
+        return $this->lat;
+    }
+
+    public function setLat(?float $lat): self
+    {
+        $this->lat = $lat;
 
         return $this;
     }
 
-    public function getIdAdminHasTickets(): ?AdminHasTicket
+    public function getLon(): ?float
     {
-        return $this->idAdminHasTickets;
+        return $this->lon;
     }
 
-    public function setIdAdminHasTickets(?AdminHasTicket $idAdminHasTickets): self
+    public function setLon(?float $lon): self
     {
-        $this->idAdminHasTickets = $idAdminHasTickets;
+        $this->lon = $lon;
 
         return $this;
     }
