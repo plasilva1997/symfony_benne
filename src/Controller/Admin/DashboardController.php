@@ -2,6 +2,9 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Bin;
+use App\Entity\Ticket;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -19,6 +22,7 @@ class DashboardController extends AbstractDashboardController
         $routeBuilder = $this->get(AdminUrlGenerator::class);
 
         return $this->redirect($routeBuilder->setController(TicketCrudController::class)->generateUrl());
+
     }
 
     public function configureDashboard(): Dashboard
@@ -29,7 +33,8 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linktoDashboard('Tickets', 'fa fa-ticket');
+        yield MenuItem::linkToCrud('Tickets', 'fa fa-ticket', Ticket::class);
+        yield MenuItem::linktoCrud('Bennes', 'fa fa-trash', Bin::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
