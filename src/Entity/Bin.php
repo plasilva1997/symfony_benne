@@ -62,6 +62,11 @@ class Bin
      */
     private $lon;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $gmlId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -172,6 +177,18 @@ class Bin
     public function setLon(?float $lon): self
     {
         $this->lon = $lon;
+
+        return $this;
+    }
+
+    public function getGmlId(): ?string
+    {
+        return $this->gmlId;
+    }
+
+    public function setGmlId(string $gmlId): self
+    {
+        $this->gmlId = $gmlId;
 
         return $this;
     }
