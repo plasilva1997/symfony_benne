@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class HomePageController extends AbstractController
 {
@@ -18,12 +19,14 @@ class HomePageController extends AbstractController
         $this->manager = $manager;
     }
     private $manager;
+
     /**
      * @Route("/", name="home_page")
      * @param Request $request
+     * @param TranslatorInterface $translator
      * @return Response
      */
-    public function index(Request $request): Response
+    public function index(Request $request, TranslatorInterface $translator): Response
     {
 
         if ($request->request->count() > 0){
@@ -37,6 +40,8 @@ class HomePageController extends AbstractController
 
             $this->manager->persist($ticket);
             $this->manager->flush();
+
+
         }
 
 
@@ -44,6 +49,11 @@ class HomePageController extends AbstractController
             'controller_name' => 'HomePageController',
         ]);
     }
+
+
+
+
+
 
 
 

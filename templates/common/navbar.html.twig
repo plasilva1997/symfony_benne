@@ -8,7 +8,7 @@
     </a>
     <div  class="link-nav">
         <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer" class="link-nav-a">
-            <div  class="text-link">Signaler un probléme</div>
+            <div  class="text-link">{% trans %}Signaler un probléme {% endtrans %}</div>
         </button>
     </div>
 </div>
@@ -43,3 +43,9 @@
     </div>
 </div>
 </div>
+
+{% for message in app.flashes('message') %}
+<div class="alert alert-success" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
