@@ -7,9 +7,10 @@
     <img alt="logo" class="logo-nav" src= {{ asset('build/img/eco_verre.svg') }} >
     </a>
     <div  class="link-nav">
-        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer" class="link-nav-a">
-            <div  class="text-link">Signaler un probléme</div>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: auto; cursor: pointer" class="link-nav-a">
+            <div  class="text-link">{% trans %}Signaler un probléme {% endtrans %}</div>
         </button>
+
     </div>
 </div>
 
@@ -18,7 +19,7 @@
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Nous signaler un problème</h5>
+            <h5 class="modal-title" id="exampleModalLabel">{% trans %}Nous signaler un problème{% endtrans %}</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form id="contactForm" method="post" action="" name="contact" role="form">
@@ -37,9 +38,11 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <input type="submit" class="btn btn-success" id="submit">
+                <button type="submit"  class="btn btn-success" id="submit">{% trans %}Envoyer{% endtrans %}</button>
             </div>
         </form>
     </div>
 </div>
 </div>
+
+
