@@ -25,6 +25,14 @@
         <source>Signaler un probléme</source>
         <target>Report a problem</target>
       </trans-unit>
+      <trans-unit id="GvleUcj" resname="Nous signaler un problème">
+        <source>Nous signaler un problème</source>
+        <target>Report a problem to us</target>
+      </trans-unit>
+      <trans-unit id="eQdSCfK" resname="Envoyer">
+        <source>Envoyer</source>
+        <target>Send</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -1,6 +1,19 @@
 <div class="footer">
     <img alt="logo" class="logo-footer" src= {{ asset('build/img/eco_verre.svg') }} >
 
+    <div class="locale">
     <a href="{{ path('legal') }}" class="link-footer"><div class="text-footer">Mentions Légales</div></a>
+
+    {% for locale in locales  %}
+        {% if locale != app.request.locale %}
+            <a class="img-locale-a" href="{{ path('change_locale', {'locale' : locale}) }}"><img class="img-locale" src="{{ asset('build/img/'~locale~'.svg') }}" alt="{{ locale }}"></a>
+        {% endif %}
+    {% endfor%}
+
+    </div>
+
+
 </div>
+
+
 
