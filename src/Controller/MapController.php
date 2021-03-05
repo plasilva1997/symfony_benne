@@ -26,7 +26,14 @@ class MapController extends AbstractController
     public function index(BinRepository $binRepository): Response
     {
         //recuperation donnes BDD
-        $bin = $binRepository->findAll();
+        $coords=[];
+        $bins = $binRepository->findAll();
+        foreach ($bins as $bin)
+        {
+                array_push($coords, array($bin->getLat(), $bin->getLon(), $bin->getStreetNum(), $bin->getStreet(), $bin->getCity()));
+        }
+
+        print_r($coords);
 
         //Seriallization
         $jsonContent = $this->serializerService->serialize($bin);
@@ -34,7 +41,7 @@ class MapController extends AbstractController
 
         return $this->render('map/index.html.twig', [
             'controller_name' => 'MapController',
-            'bins' => $jsonContent
+            'bins' => $coords
         ]);
     }
 }
