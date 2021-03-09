@@ -19,6 +19,10 @@
             </div>
         </div>
     </div>
+
+
+
+
    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet'/>
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js'></script>
@@ -34,19 +38,9 @@
                 center: [2.358725729465928, 48.85651527246046], // starting position [lng, lat]
                 zoom: 9 // starting zoom
             });
-            var el = document.createElement('div');
-            el.className = 'marker';
 
-            console.log(jsonData);
+            var allBin = {{ bins|json_encode|raw }} ;
 
-/*
-            for (var i = 0; i < jsonData.length; i++) {
-                console.log(jsonData[i]);
-                /!*new mapboxgl.Marker(el)
-                    .setLngLat([])
-                    .addTo(map);*!/
-            }
-*/
 
 
             map.addControl(
@@ -69,42 +63,47 @@
                 }, // coordonate of Paris
             });
             map.addControl(geocoder);
-            map.on('load', function() {
-                map.addLayer({
-                    id: 'point',
-                    source: 'single-point',
-                    type: 'circle',
-                    paint: {
-                        'circle-radius': 10,
-                        'circle-color': '#218100'
-                    }
-                });
-                geocoder.on('result', function(ev) {
-                    map.getSource('single-point').setData(ev.result.geometry);
-                });
+            map.on('load', function(){
+
+                // map.addSource('places', {
+                //     type: 'geojson',
+                //     data: {
+                //         allBin
+                //     }
+                // });
+                //
+                // addMarkers();
+                //
+                // geocoder.on('result', function(ev) {
+                //     map.getSource('single-point').setData(ev.result.geometry);
+                // });
+                console.log(allBin);
             });
-            map.addSource('streets-v11', {
-                type: 'geojson',
-                data: {
-                    type: 'FeatureCollection',
-                    features: [{
-                        'type': 'Feature',
-                        "properties": {"name": "Lyon"},
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [45.754221213412606, 4.836492121283906]
-                        }
-                    },
-                        {
-                            'type': 'Feature',
-                            "properties": {"name": "Toulouse"},
-                            'geometry': {
-                                'type': 'Point',
-                                'coordinates': [43.60192167048579, 1.4266594874732794]
-                            }
-                        }]
-                }
-            });
+
+            let i = 0;
+
+            function addMarkers() {
+                /* For each feature in the GeoJSON object above: */
+                allBin.features.forEach(function(marker) {
+                    /* Create a div element for the marker. */
+                    var el = document.createElement('div');
+                    /* Assign a unique `id` to the marker. */
+                    el.id = "marker-" + i;
+                    i++;
+                    /* Assign the `marker` class to each marker for styling. */
+                    el.className = 'marker';
+
+                    /**
+                     * Create a marker using the div element
+                     * defined above and add it to the map.
+                     **/
+                    new mapboxgl.Marker(el, { offset: [0, -23] })
+                        .setLngLat(marker.geometry.coordinates)
+                        .addTo(map);
+
+                });
+            }
+
 
         </script>
     {% endblock %}
@@ -133,7 +132,7 @@
         }
 
         .marker {
-            background-image: url('../../public/build/img/recycle-sign.svg');
+            background-image: url{{ asset('build/img/bg_1.jpg') }};
             background-size: cover;
             width: 50px;
             height: 50px;
