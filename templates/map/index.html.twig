@@ -35,12 +35,17 @@
             var map = new mapboxgl.Map({
                 container: 'map', // container id
                 style: 'mapbox://styles/mapbox/streets-v11', // style URL
-                center: [2.358725729465928, 48.85651527246046], // starting position [lng, lat]
+                center: [4.835659, 45.764043], // starting position [lng, lat]
                 zoom: 9 // starting zoom
             });
 
-            var allBin = {{ bins|json_encode|raw }} ;
 
+            {% for binn in bin %}
+            var marker{{ binn.id }} = new mapboxgl.Marker()
+                .setLngLat([ {{ binn.lon }} , {{ binn.lat }}])
+                .addTo(map)
+                .setPopup(new mapboxgl.Popup().setHTML("<h3>Commune : {{ binn.city }}</h3><h4>Adresse : {{ binn.street }}</h4>"))
+            {% endfor %}
 
 
             map.addControl(
@@ -57,52 +62,17 @@
                 marker: false, // Do not use the default marker style
                 placeholder: 'Votre adresse', // Placeholder text for the search bar
                 bbox: [ -4.79556, 2.5328, 48.96722, 51.0891], // Boundary for Berkeley
-                proximity: {
-                    longitude: 2.358725729465928,
-                    latitude: 48.85651527246046
-                }, // coordonate of Paris
+
             });
             map.addControl(geocoder);
             map.on('load', function(){
 
-                // map.addSource('places', {
-                //     type: 'geojson',
-                //     data: {
-                //         allBin
-                //     }
-                // });
-                //
-                // addMarkers();
-                //
-                // geocoder.on('result', function(ev) {
-                //     map.getSource('single-point').setData(ev.result.geometry);
-                // });
-                console.log(allBin);
-            });
 
-            let i = 0;
-
-            function addMarkers() {
-                /* For each feature in the GeoJSON object above: */
-                allBin.features.forEach(function(marker) {
-                    /* Create a div element for the marker. */
-                    var el = document.createElement('div');
-                    /* Assign a unique `id` to the marker. */
-                    el.id = "marker-" + i;
-                    i++;
-                    /* Assign the `marker` class to each marker for styling. */
-                    el.className = 'marker';
-
-                    /**
-                     * Create a marker using the div element
-                     * defined above and add it to the map.
-                     **/
-                    new mapboxgl.Marker(el, { offset: [0, -23] })
-                        .setLngLat(marker.geometry.coordinates)
-                        .addTo(map);
-
+                geocoder.on('result', function(ev) {
+                    map.getSource('single-point').setData(ev.result.geometry);
                 });
-            }
+
+            });
 
 
         </script>
@@ -127,9 +97,6 @@
             fill: #218100;
         }
 
-        .mapboxgl-marke{
-
-        }
 
         .marker {
             background-image: url{{ asset('build/img/bg_1.jpg') }};
