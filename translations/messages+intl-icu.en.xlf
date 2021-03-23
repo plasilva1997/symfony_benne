@@ -21,8 +21,8 @@
         <source>Trouvez votre ville parmis la liste en bas</source>
         <target>Find your city in the list below</target>
       </trans-unit>
-      <trans-unit id="dTZv45e" resname="Signaler un probléme">
-        <source>Signaler un probléme</source>
+      <trans-unit id="dTZv45e" resname="Signaler un problème">
+        <source>Signaler un problème</source>
         <target>Report a problem</target>
       </trans-unit>
       <trans-unit id="GvleUcj" resname="Nous signaler un problème">
@@ -32,6 +32,10 @@
       <trans-unit id="eQdSCfK" resname="Envoyer">
         <source>Envoyer</source>
         <target>Send</target>
+      </trans-unit>
+      <trans-unit id="LxVkJ.E" resname="Signaler un problème">
+        <source>Signaler un problème</source>
+        <target>Report a problem</target>
       </trans-unit>
     </body>
   </file>
