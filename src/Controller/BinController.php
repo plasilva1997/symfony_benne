@@ -15,21 +15,14 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class BinController extends AbstractController
 {
-    private HttpClientInterface $glassContainer;
-
-    public function __construct(HttpClientInterface $glassContainer )
-    {
-        $this->glassContainer = $glassContainer;
-    }
 
     /**
      * @Route("/api/lyon/update", name="UpdateLyon")
      * @param EntityManagerInterface $entityManager
      * @param BinRepository $BinRepository
-     * @param TranslatorInterface $translator
      * @return Response
      */
-    public function update(EntityManagerInterface $entityManager, BinRepository $BinRepository, TranslatorInterface $translator)
+    public function update(EntityManagerInterface $entityManager, BinRepository $BinRepository)
     {
         $get = new ApiLyon();
         $i = $get->getApi($entityManager, $BinRepository);
