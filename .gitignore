@@ -264,3 +264,5 @@ $RECYCLE.BIN/
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+.env
+.env.test
