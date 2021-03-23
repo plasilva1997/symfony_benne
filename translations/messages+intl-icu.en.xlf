@@ -33,6 +33,10 @@
         <source>Envoyer</source>
         <target>Send</target>
       </trans-unit>
+      <trans-unit id="LxVkJ.E" resname="Signaler un problème">
+        <source>Signaler un problème</source>
+        <target>Report a problem</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
