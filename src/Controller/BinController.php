@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class BinController extends AbstractController
 {
@@ -25,9 +26,10 @@ class BinController extends AbstractController
      * @Route("/api/lyon/update", name="UpdateLyon")
      * @param EntityManagerInterface $entityManager
      * @param BinRepository $BinRepository
+     * @param TranslatorInterface $translator
      * @return Response
      */
-    public function update(EntityManagerInterface $entityManager, BinRepository $BinRepository)
+    public function update(EntityManagerInterface $entityManager, BinRepository $BinRepository, TranslatorInterface $translator)
     {
         $get = new ApiLyon();
         $i = $get->getApi($entityManager, $BinRepository);

@@ -8,6 +8,7 @@ use stdClass;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class MapController extends AbstractController
 {
@@ -21,9 +22,10 @@ class MapController extends AbstractController
     /**
      * @Route("/map", name="map")
      * @param BinRepository $binRepository
+     * @param TranslatorInterface $translator
      * @return Response
      */
-    public function index(BinRepository $binRepository): Response
+    public function index(BinRepository $binRepository, TranslatorInterface $translator): Response
     {
 
         $bins = $binRepository->findAll();
