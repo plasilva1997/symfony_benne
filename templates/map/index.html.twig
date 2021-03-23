@@ -56,7 +56,7 @@
 
 
     <script type="text/javascript">
-        mapboxgl.accessToken= 'pk.eyJ1IjoiYXhlbGJhcmJlaHVzc29uIiwiYSI6ImNrNWZlNWE5cTJrMDczbXBnOGI4NTk2MTMifQ.5l3FgdaFC4KAGnfabyT6Kw';
+        mapboxgl.accessToken= 'pk.eyJ1IjoiYXhlbGJhcmJlaHVzc29uIiwiYSI6ImNrNWZlNWE5cTJrMDczbXBnOGI4NTk2MTMifQ.5l3FgdaFC4KAGnfabyT6Kw';//token
         var map = new mapboxgl.Map({
             container: 'map', // container id
             style: 'mapbox://styles/mapbox/streets-v11', // style URL
@@ -83,7 +83,7 @@
             mapboxgl: mapboxgl, // Set the mapbox-gl instance
             marker: false, // Do not use the default marker style
             placeholder: 'Votre adresse', // Placeholder text for the search bar
-            bbox: [ -4.79556, 2.5328, 48.96722, 51.0891], // Boundary for Berkeley
+            bbox: [ -4.79556, 2.5328, 48.96722, 51.0891], // Boundary for France
             proximity: {
                 longitude: 2.358725729465928,
                 latitude: 48.85651527246046
@@ -105,15 +105,15 @@
             });
         });
         map.addSource('streets-v11', {
-            type: 'geojson',
+            type: 'geojson',//type of source
             data: {
-                type: 'FeatureCollection',
+                type: 'FeatureCollection', //type of array data
                 features: [{
-                    'type': 'Feature',
-                    "properties": {"name": "Lyon"},
+                    'type': 'Feature', //type of the first data in array
+                    "properties": {"name": "Lyon"}, //name of point
                     'geometry': {
                         'type': 'Point',
-                        'coordinates': [45.754221213412606, 4.836492121283906]
+                        'coordinates': [45.754221213412606, 4.836492121283906] //coordinates for the first pont [lat,Lng]
                     }
                 },
                     {
