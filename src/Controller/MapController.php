@@ -14,7 +14,6 @@ class MapController extends AbstractController
 {
     private SerializerService $serializerService;
 
-
     public function __construct(SerializerService $serializerService){
         $this->serializerService = $serializerService;
     }
