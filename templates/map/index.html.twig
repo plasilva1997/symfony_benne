@@ -30,16 +30,17 @@
 
     {% block javascripts %}
         <script type="text/javascript">
-            mapboxgl.accessToken= 'pk.eyJ1IjoiYXhlbGJhcmJlaHVzc29uIiwiYSI6ImNrNWZlNWE5cTJrMDczbXBnOGI4NTk2MTMifQ.5l3FgdaFC4KAGnfabyT6Kw';
+            mapboxgl.accessToken= 'pk.eyJ1IjoiYXhlbGJhcmJlaHVzc29uIiwiYSI6ImNrNWZlNWE5cTJrMDczbXBnOGI4NTk2MTMifQ.5l3FgdaFC4KAGnfabyT6Kw';//token
 
             var map = new mapboxgl.Map({
                 container: 'map', // container id
                 style: 'mapbox://styles/mapbox/streets-v11', // style URL
                 center: [4.835659, 45.764043], // starting position [lng, lat]
-                zoom: 9 // starting zoom
+                zoom: 11 // starting zoom
             });
 
 
+            //Recherche des bennes en base de données
             {% for binn in bin %}
             var marker{{ binn.id }} = new mapboxgl.Marker()
                 .setLngLat([ {{ binn.lon }} , {{ binn.lat }}])
@@ -56,12 +57,12 @@
                     trackUserLocation: true
                 })
             );
-            var geocoder = new MapboxGeocoder({ // Initialize the geocoder
-                accessToken: mapboxgl.accessToken, // Set the access token
-                mapboxgl: mapboxgl, // Set the mapbox-gl instance
-                marker: false, // Do not use the default marker style
-                placeholder: 'Votre adresse', // Placeholder text for the search bar
-                bbox: [ -4.79556, 2.5328, 48.96722, 51.0891], // Boundary for Berkeley
+            var geocoder = new MapboxGeocoder({ // Lancement du geocoder
+                accessToken: mapboxgl.accessToken, // Demande d'acces au token
+                mapboxgl: mapboxgl,
+                marker: false,
+                placeholder: 'Votre adresse', // Placeholder bare de recherche
+                bbox: [ -4.79556, 2.5328, 48.96722, 51.0891],
 
             });
             map.addControl(geocoder);
