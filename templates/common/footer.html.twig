@@ -2,7 +2,7 @@
     <img alt="logo" class="logo-footer" src= {{ asset('build/img/eco_verre.svg') }} >
 
     <div class="locale">
-    <a href="{{ path('legal') }}" class="link-footer"><div class="text-footer">Mentions Légales</div></a>
+    <a href="{{ path('legal') }}" class="link-footer"><div class="text-footer">{% trans %}Mentions Légales{% endtrans %}</div></a>
 
     {% for locale in locales  %}
         {% if locale != app.request.locale %}

@@ -21,7 +21,7 @@
         <source>Trouvez votre ville parmis la liste en bas</source>
         <target>Find your city in the list below</target>
       </trans-unit>
-      <trans-unit id="dTZv45e" resname="Signaler un problème">
+      <trans-unit id="LxVkJ.E" resname="Signaler un problème">
         <source>Signaler un problème</source>
         <target>Report a problem</target>
       </trans-unit>
@@ -33,9 +33,133 @@
         <source>Envoyer</source>
         <target>Send</target>
       </trans-unit>
-      <trans-unit id="LxVkJ.E" resname="Signaler un problème">
-        <source>Signaler un problème</source>
-        <target>Report a problem</target>
+      <trans-unit id="yqJeZE9" resname="Mentions Légales">
+        <source>Mentions Légales</source>
+        <target>Legal Notice</target>
+      </trans-unit>
+      <trans-unit id="VL6aY3d" resname="Le site">
+        <source>Le site</source>
+        <target>The website</target>
+      </trans-unit>
+      <trans-unit id=".qiL0ks" resname="hébergé chez OVH, est édité par EcoVerre">
+        <source>hébergé chez OVH, est édité par EcoVerre</source>
+        <target>hosted by OVH, is published by EcoVerre</target>
+      </trans-unit>
+      <trans-unit id="rjwkGDZ" resname="Le directeur de la publication est EcoVerre.">
+        <source>Le directeur de la publication est EcoVerre.</source>
+        <target>The director of the publication is EcoVerre.</target>
+      </trans-unit>
+      <trans-unit id="wfTPJPi" resname="Siége Social">
+        <source>Siége Social</source>
+        <target>Head Office</target>
+      </trans-unit>
+      <trans-unit id="3XEnh.7" resname="Dénomination sociale : WebWin">
+        <source>Dénomination sociale : WebWin</source>
+        <target>Company name : WebWin</target>
+      </trans-unit>
+      <trans-unit id="RF4_aLO" resname="Adresse postale :">
+        <source>Adresse postale :</source>
+        <target>Postal address :</target>
+      </trans-unit>
+      <trans-unit id="K9i9ozY" resname="Forme juridique : SAS">
+        <source>Forme juridique : SAS</source>
+        <target>Legal form : SAS</target>
+      </trans-unit>
+      <trans-unit id="s0Y5g02" resname="Propriété intellectuelle">
+        <source>Propriété intellectuelle</source>
+        <target>Intellectual property</target>
+      </trans-unit>
+      <trans-unit id="JTrSTS." resname="L’ensemble de ce site relève des législations Françaises et Internationales sur les droits d’auteur et la propriété intellectuelle.&#10;                    Tous les droits de reproduction sont réservés pour les textes et les photographies de ce site. La reproduction de tout ou partie de ce site&#10;                    sur un support électronique ou autre quel qu’il soit, est formellement interdite sauf autorisation écrite de l’auteur, conformément à&#10;                    l’article L 122-4 du Code de la Propriété intellectuelle.">
+        <source>L’ensemble de ce site relève des législations Françaises et Internationales sur les droits d’auteur et la propriété intellectuelle.
+                    Tous les droits de reproduction sont réservés pour les textes et les photographies de ce site. La reproduction de tout ou partie de ce site
+                    sur un support électronique ou autre quel qu’il soit, est formellement interdite sauf autorisation écrite de l’auteur, conformément à
+                    l’article L 122-4 du Code de la Propriété intellectuelle.</source>
+        <target>The whole of this site is subject to French and international legislation on copyright and intellectual property.
+All reproduction rights are reserved for the texts and photographs on this site. The reproduction of all or part of this site
+on an electronic medium or any other medium whatsoever is strictly forbidden without written authorisation from the author, in accordance with
+article L 122-4 of the Intellectual Property Code.</target>
+      </trans-unit>
+      <trans-unit id="QOy29K." resname="Crédits photos">
+        <source>Crédits photos</source>
+        <target>Photo credits</target>
+      </trans-unit>
+      <trans-unit id="cXgTUGe" resname="Le contenu photographique du site internet provient du site d’images libres de droit unsplash.com.">
+        <source>Le contenu photographique du site internet provient du site d’images libres de droit unsplash.com.</source>
+        <target>The photographic content of the website comes from the royalty-free image website unsplash.com.</target>
+      </trans-unit>
+      <trans-unit id="Zi40N93" resname="Liens hypertextes">
+        <source>Liens hypertextes</source>
+        <target>Hyperlinks</target>
+      </trans-unit>
+      <trans-unit id="EjNlFWc" resname="Les liens hypertextes mis en place dans le cadre du présent site internet en direction d’autres ressources présentes sur le réseau Internet, et&#10;                    notamment vers ses partenaires ont fait l’objet d’une autorisation préalable, expresse et écrite auprès de l’éditeur.">
+        <source>Les liens hypertextes mis en place dans le cadre du présent site internet en direction d’autres ressources présentes sur le réseau Internet, et
+                    notamment vers ses partenaires ont fait l’objet d’une autorisation préalable, expresse et écrite auprès de l’éditeur.</source>
+        <target>The hypertext links set up within the framework of this website to other resources on the Internet, and in particular to its partners, have been subject to prior express written authorisation from the publisher.
+particularly towards its partners, have been subject to prior, express and written authorisation from the publisher.</target>
+      </trans-unit>
+      <trans-unit id="_HO33Mj" resname="Politique de confidentialité">
+        <source>Politique de confidentialité</source>
+        <target>Privacy Policy</target>
+      </trans-unit>
+      <trans-unit id="wUYlgLG" resname="En aucun cas, les données recueillies sur le site « ecoverre.paulosilva.xyz » ne seront cédées ou vendues à des tiers. Aucune adresse mail ne sera&#10;                    transmise à des tiers y compris à nos partenaires.">
+        <source>En aucun cas, les données recueillies sur le site « ecoverre.paulosilva.xyz » ne seront cédées ou vendues à des tiers. Aucune adresse mail ne sera
+                    transmise à des tiers y compris à nos partenaires.</source>
+        <target>Under no circumstances will the data collected on the "ecoverre.paulosilva.xyz" site be transferred or sold to third parties. No e-mail address will be
+transmitted to third parties, including our partners.</target>
+      </trans-unit>
+      <trans-unit id="FBOV6zV" resname="Cookies">
+        <source>Cookies</source>
+        <target>Cookies</target>
+      </trans-unit>
+      <trans-unit id="53NJmCT" resname="Le site que vous visitez utilise des traceurs (cookies). Ainsi, le site est susceptible d’accéder à des informations déjà stockées dans votre équipement,&#10;                    terminal de communications électroniques et d’y inscrire des informations. Les traceurs utilisés par le site relèvent de deux catégories :">
+        <source>Le site que vous visitez utilise des traceurs (cookies). Ainsi, le site est susceptible d’accéder à des informations déjà stockées dans votre équipement,
+                    terminal de communications électroniques et d’y inscrire des informations. Les traceurs utilisés par le site relèvent de deux catégories :</source>
+        <target>The site you are visiting uses cookies. Thus, the site may access information already stored in your equipment,
+electronic communications terminal and to record information there. The cookies used by the site fall into two categories:</target>
+      </trans-unit>
+      <trans-unit id="e_tdpBP" resname="Traceurs dits strictement nécessaires, qui ne nécessitent pas votre consentement préalable,">
+        <source>Traceurs dits strictement nécessaires, qui ne nécessitent pas votre consentement préalable,</source>
+        <target>Strictly necessary tracers, which do not require your prior consent,</target>
+      </trans-unit>
+      <trans-unit id="5lIn9J1" resname="Autres traceurs soumis à votre consentement préalable.">
+        <source>Autres traceurs soumis à votre consentement préalable.</source>
+        <target>Other trackers subject to your prior consent.</target>
+      </trans-unit>
+      <trans-unit id="a.kmQd9" resname="1.Traceurs exemptés de consentement préalable.">
+        <source>1.Traceurs exemptés de consentement préalable.</source>
+        <target>1.Tracers exempt from prior consent.</target>
+      </trans-unit>
+      <trans-unit id="emyOI.r" resname="Nous utilisons ces traceurs pour permettre ou faciliter la communication par voie électronique. Ces traceurs ne peuvent pas, techniquement,&#10;                    être désactivés depuis le site. Vous pouvez néanmoins vous opposer à l’utilisation de ces traceurs, exclusivement en paramétrant votre&#10;                    navigateur. Ce paramétrage dépend du navigateur que vous utilisez, mais il est en général simple à réaliser : en principe,&#10;                    vous pouvez soit activer une fonction de navigation privée soit uniquement interdire ou restreindre les traceurs (cookies).&#10;                    Attention, il se peut que des traceurs aient été enregistrés sur votre périphérique avant le paramétrage de votre navigateur : dans ce cas,&#10;                    effacez votre historique de navigation, toujours en utilisant le paramétrage de votre navigateur.">
+        <source>Nous utilisons ces traceurs pour permettre ou faciliter la communication par voie électronique. Ces traceurs ne peuvent pas, techniquement,
+                    être désactivés depuis le site. Vous pouvez néanmoins vous opposer à l’utilisation de ces traceurs, exclusivement en paramétrant votre
+                    navigateur. Ce paramétrage dépend du navigateur que vous utilisez, mais il est en général simple à réaliser : en principe,
+                    vous pouvez soit activer une fonction de navigation privée soit uniquement interdire ou restreindre les traceurs (cookies).
+                    Attention, il se peut que des traceurs aient été enregistrés sur votre périphérique avant le paramétrage de votre navigateur : dans ce cas,
+                    effacez votre historique de navigation, toujours en utilisant le paramétrage de votre navigateur.</source>
+        <target>We use these cookies to enable or facilitate electronic communication. These cookies cannot technically be disabled from the site,
+be deactivated from the site. However, you can prevent the use of these cookies by adjusting your
+browser. This setting depends on the browser you are using, but it is generally easy to do: in principle,
+You can either activate a private browsing function or simply prohibit or restrict cookies.
+Please note that cookies may have been stored on your device before you set up your browser: in this case
+delete your browsing history, again using your browser settings.</target>
+      </trans-unit>
+      <trans-unit id="BS4uBZh" resname="2.Traceurs soumis à votre consentement préalable.">
+        <source>2.Traceurs soumis à votre consentement préalable.</source>
+        <target>2.Trackers subject to your prior consent.</target>
+      </trans-unit>
+      <trans-unit id="BvJ6TF7" resname="Ces traceurs sous le contrôle de tiers sont utilisés pour réaliser des statistiques anonymes. Le tableau ci-dessous liste les traceurs sous le&#10;                    contrôle de tiers qui sont soumis à votre consentement préalable.">
+        <source>Ces traceurs sous le contrôle de tiers sont utilisés pour réaliser des statistiques anonymes. Le tableau ci-dessous liste les traceurs sous le
+                    contrôle de tiers qui sont soumis à votre consentement préalable.</source>
+        <target>These third-party trackers are used to produce anonymous statistics. The table below lists the third-party trackers that are subject to your prior consent.
+control that are subject to your prior consent.</target>
+      </trans-unit>
+      <trans-unit id="qOl19Z5" resname="L’utilisation des traceurs est régie par l’article 32 II de la loi n°78-17 du 6 janvier 1978,transposant l’article 5.3 de la directive 2002/58/CE&#10;                    du parlement européen et du conseil du 12 juillet 2002 modifiée par la directive 2009/136/CE.&#10;                    Pour en savoir plus sur les cookies et traceurs, nous vous invitons à consulter le site de la CNIL : www.cnil.fr.">
+        <source>L’utilisation des traceurs est régie par l’article 32 II de la loi n°78-17 du 6 janvier 1978,transposant l’article 5.3 de la directive 2002/58/CE
+                    du parlement européen et du conseil du 12 juillet 2002 modifiée par la directive 2009/136/CE.
+                    Pour en savoir plus sur les cookies et traceurs, nous vous invitons à consulter le site de la CNIL : www.cnil.fr.</source>
+        <target>The use of tracers is governed by article 32 II of law n°78-17 of 6 January 1978, transposing article 5.3 of directive 2002/58/EC
+of the European Parliament and of the Council of 12 July 2002 as amended by Directive 2009/136/EC.
+To find out more about cookies and tracers, we invite you to consult the CNIL website: www.cnil.fr.</target>
       </trans-unit>
     </body>
   </file>
