@@ -28,7 +28,7 @@ class BinController extends AbstractController
         $i = $get->getApi($entityManager, $BinRepository);
         $total = $i[0] + $i[1];
         return new Response(
-            '>Un total de ' . $total . ' request faites' . $i[0] . ' ajouts' . $i[1] . ' updates'
+            '>Un total de ' . $total . ' request faites ' . $i[0] . ' ajouts ' . $i[1] . ' updates'
         );
     }
 }
