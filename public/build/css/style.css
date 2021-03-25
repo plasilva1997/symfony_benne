@@ -305,57 +305,7 @@ body{
 
 /*map*/
 
-.benne{
-    margin-top: 5vh;
-    width: 300px;
-    height: 70px;
-    background-color: #54BE73;
-    color: white;
-    font-size: 1.2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    text-decoration: none;
-    border: 2px solid #54BE73;
-    transition: 0.5s;
 
-}
-
-.benne:hover{
-    transition: 0.5s;
-    background-color: transparent;
-    color: #54BE73;
-    border-color: #54BE73;
-
-}
-
-.pannel{
-    padding-top: 5vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.input_search {
-    width: 300px;
-    background-color: transparent;
-    color: #eeeeee;
-    outline: none;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: solid #ffffff 1px;
-    padding: 3px 10px;
-    font-size:1.2em;
-    transition: 0.5s;
-}
-
-.input_search:focus{
-    border-bottom: solid #9BBF26 1px;
-    transition: 0.5s;
-
-}
 
 .content{
     width: 100%;
@@ -363,16 +313,6 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-
-.pannel{
-    position: fixed;
-    top: 8vh;
-    bottom: 8vh;
-    right: 0;
-    left: 75vw;
-    background-color: #4B4B4B;
-    overflow: auto;
 }
 
 
@@ -387,7 +327,8 @@ body{
 
 #map{
     zoom: 100%;
-    width: 75vw; height: 84vh;
+    width: 100vw;
+    height: 84vh;
 }
 
 

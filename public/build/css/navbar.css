@@ -15,11 +15,11 @@
 }
 
 .logo-nav-a{
-    width: 10%;
+    width: 150px;
 }
 
 .logo-nav{
-    width: 50%;
+    width: 150px;
     min-height: 8vh;
     margin-left: 5%;
 }
@@ -37,7 +37,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    width: 60%;
+    width: auto;
     height: 8vh;
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
@@ -83,3 +83,5 @@
 .text-link{
     font-size: 1.5em;
 }
+
+

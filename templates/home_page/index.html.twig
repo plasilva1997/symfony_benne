@@ -9,9 +9,9 @@
             <img class="image" alt="background" src="{{ asset('build/img/bg_1.jpg') }}">
             <div class="img-up">
                 <img class="image-logo" src={{ asset('build/img/eco_verre.svg') }}>
-                <p class="v-dispo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam risus lectus, fermentum suscipit.</p>
+                <p class="v-dispo">{% trans %}Oui le verre se recicle aussi{% endtrans %}</p>
                 <div>
-                    <a class="js-scrollTo cta-villes" href="#villes">Villes Disponibles</a>
+                    <a class="js-scrollTo cta-villes" href="#villes">{% trans %}Villes Disponibles{% endtrans %}</a>
                 </div>
             </div>
             <div class="cercle_div">
@@ -22,32 +22,35 @@
     {% endblock %}
 
 
+
+
+
     {% block villes %}
 
         <div id="villes">
             <img class="ico-recycle" alt="recycle icon" src={{ asset('build/img/recycle-sign.svg') }}>
             <div class="title-villes">
-                <p>Les villes disponibles</p>
+                <p>{% trans %}Les villes disponibles{% endtrans %}</p>
             </div>
             <div class="text-villes">
-                <p class="text-villes-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam risus lectus, fermentum suscipit.</p>
+                <p class="text-villes-a">{% trans %}Trouvez votre ville parmis la liste en bas {% endtrans %}</p>
             </div>
             <div class="center-cards">
                 <div class="cards_ville">
-                    <a href="#" class="single_card_ville">
+                    <a href="{{ path('map_lyon') }}" class="single_card_ville">
                         <div class="ico-ville"></div>
-                        Paris
+                        Lyon
                     </a>
 
 
                     <a href="#" class="single_card_ville">
                         <div class="ico-ville"></div>
-                        Paris
+                        Paris (Bientôt)
                     </a>
 
                     <a href="#" class="single_card_ville">
                         <div class="ico-ville"></div>
-                        Paris
+                        Rouen (Bientôt)
                     </a>
                 </div>
             </div>

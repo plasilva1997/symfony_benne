@@ -8,7 +8,7 @@ use App\Entity\Bin;
 
 class ApiLyon
 {
-    public function getApi($entityManager, $BinRepository)
+    public function getApi($entityManager, $BinRepository): array
     {
         $url = file_get_contents('https://www.data.gouv.fr/fr/datasets/r/85ad9858-0f57-4ae0-9af4-e90165ee83ae');
         $json = json_decode($url, true);
