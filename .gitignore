@@ -250,6 +250,7 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/phpstorm+all,visualstudiocode,windows,linux,macos,osx,composer,symfony
 ###> symfony/framework-bundle ###
+/.env
 /.env.local
 /.env.local.php
 /.env.*.local
